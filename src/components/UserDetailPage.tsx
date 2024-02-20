@@ -1,7 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
 
 import { useLoaderData } from "react-router-dom";
-import { User } from "../types";
+import { User, RouteParams } from "../types"
+
+interface userDetailLoaderParams{
+  params: RouteParams
+}
 
 const UserDetailPage: React.FC = () => {
   const userDetails = useLoaderData() as User;
@@ -14,7 +18,7 @@ const UserDetailPage: React.FC = () => {
 };
 export default UserDetailPage;
 
-export const userDetailLoader = async ({ params }) => {
+export const userDetailLoader = async ({ params }: userDetailLoaderParams) => {
   const { id } = params;
   const response = await fetch(
     "https://jsonplaceholder.typicode.com/users/" + id

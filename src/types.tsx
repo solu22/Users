@@ -7,6 +7,10 @@ export interface User {
   username: string;
 }
 
-export interface UserArray{
-  users: User[]
+
+
+export interface RouteParams {
+  id: string;
 }
+
+export type UserArray = User[];
